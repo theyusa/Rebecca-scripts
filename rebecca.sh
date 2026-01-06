@@ -24,8 +24,8 @@ SERVICE_DIR="/usr/local/share/rebecca-maintenance"
 SERVICE_FILE="$SERVICE_DIR/main.py"
 SERVICE_REQUIREMENTS="$SERVICE_DIR/requirements.txt"
 SERVICE_UNIT="/etc/systemd/system/rebecca-maint.service"
-SERVICE_SOURCE_URL="https://raw.githubusercontent.com/rebeccapanel/Rebecca-scripts/master/main.py"
-SERVICE_REQUIREMENTS_URL="https://raw.githubusercontent.com/rebeccapanel/Rebecca-scripts/master/maintenance_requirements.txt"
+SERVICE_SOURCE_URL="https://raw.githubusercontent.com/TheYusa/Rebecca-scripts/master/main.py"
+SERVICE_REQUIREMENTS_URL="https://raw.githubusercontent.com/TheYusa/Rebecca-scripts/master/maintenance_requirements.txt"
 SERVICE_DIR_CREATED="0"
 if [ -z "$REBECCA_SCRIPT_PORT" ]; then
     REBECCA_SCRIPT_PORT="3000"
@@ -154,7 +154,7 @@ detect_compose() {
 }
 
 install_rebecca_script() {
-    FETCH_REPO="rebeccapanel/Rebecca-scripts"
+    FETCH_REPO="TheYusa/Rebecca-scripts"
     SCRIPT_URL="https://raw.githubusercontent.com/$FETCH_REPO/master/rebecca.sh"
     colorized_echo blue "Installing rebecca script"
     curl -sSL $SCRIPT_URL | install -m 755 /dev/stdin /usr/local/bin/rebecca
@@ -1527,7 +1527,7 @@ install_rebecca() {
     local rebecca_version=$1
     local database_type=$2
     # Fetch releases
-    FILES_URL_PREFIX="https://raw.githubusercontent.com/rebeccapanel/Rebecca/master"
+    FILES_URL_PREFIX="https://raw.githubusercontent.com/TheYusa/Rebecca/master"
     
     mkdir -p "$DATA_DIR"
     mkdir -p "$APP_DIR"
@@ -1944,7 +1944,7 @@ install_command() {
     # Function to check if a version exists in the GitHub releases
     check_version_exists() {
         local version=$1
-        repo_url="https://api.github.com/repos/rebeccapanel/Rebecca/releases"
+        repo_url="https://api.github.com/repos/TheYusa/Rebecca/releases"
         if [ "$version" == "latest" ] || [ "$version" == "dev" ]; then
             return 0
         fi
@@ -2369,7 +2369,7 @@ update_command() {
 }
 
 update_rebecca_script() {
-    FETCH_REPO="rebeccapanel/Rebecca-scripts"
+    FETCH_REPO="TheYusa/Rebecca-scripts"
     SCRIPT_URL="https://raw.githubusercontent.com/$FETCH_REPO/master/rebecca.sh"
     colorized_echo blue "Updating rebecca script"
     curl -sSL $SCRIPT_URL | install -m 755 /dev/stdin /usr/local/bin/rebecca
